@@ -17,5 +17,3 @@ test("Empty cart verification", async ({ page, loginlogoutfixture }) => {
     await expect(page.locator(".cart_item")).not.toBeVisible();
 
 });
-
-test
