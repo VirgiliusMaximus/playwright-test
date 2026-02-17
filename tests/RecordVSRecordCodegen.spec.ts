@@ -14,7 +14,7 @@ test('test', async ({ page }) => {
 
 });
 
-test('test', async ({ page }) => {
+test('pick locator', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').click();
   await page.locator('[data-test="username"]').fill('standard_user');
