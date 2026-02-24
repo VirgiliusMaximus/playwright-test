@@ -44,16 +44,16 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: "setup",
-      testMatch: /.*\.setup\.ts/,
-      //testMatch: "global.setup.ts"
-    },
+    // {
+    //   name: "setup",
+    //   testMatch: /.*\.setup\.ts/,
+    //   //testMatch: "global.setup.ts"
+    // },
     {
       name: 'chromium',
-      dependencies: ['setup'],
+     // dependencies: ['setup'],
       use: { ...devices['Desktop Chrome'],
-      storageState: './playwright/.auth/auth3.json'
+    //  storageState: './playwright/.auth/auth3.json'
        },
 
       //  timeout : 60000,
@@ -65,9 +65,9 @@ export default defineConfig({
     //  use: { ...devices['Desktop Firefox'] },
     // },
 
-    //{
-    //   name: 'Ipad Pro',
-    //   use: { ...devices['iPad Pro 12.9 inch'] },
+    // {
+    //   name: 'IPhone11',
+    //   use: { ...devices['iPhone 11'] },
     // },
 
     // {
