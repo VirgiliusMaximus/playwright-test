@@ -2,7 +2,7 @@ import { test, request, expect } from "@playwright/test";
 
 
 test("API Testing PUT 1", async ({ request }) => {
-    const response = await request.put('/booking/1', {
+    const response = await request.put('/booking/12', {
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",
@@ -38,7 +38,7 @@ test("API Testing PUT 1", async ({ request }) => {
     });
     expect(responsePut.additionalneeds).toBe("Breakfast");
 
-    const responseGet = await request.get('/booking/1');
+    const responseGet = await request.get('/booking/12');
     console.log(responseGet.status());
     expect(await responseGet.json()).toMatchObject({
 
