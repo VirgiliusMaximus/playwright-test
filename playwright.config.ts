@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-dotenv.config({ path: process.env.TEST_ENV ? `./env-files/.env.${process.env.TEST_ENV}`: './env-files/.env.dev' });
+//dotenv.config({ path: process.env.TEST_ENV ? `./env-files/.env.${process.env.TEST_ENV}` : './env-files/.env.dev' });
 //import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
@@ -26,8 +26,19 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : 2,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  //reporter: 'html',
-  reporter: [['html', { open: 'always', outputFolder: './my-report' }]],
+  reporter: 'html',
+  //reporter: 'list',
+  //reporter: 'line',
+  //reporter: 'dot',
+  //reporter: [['json',{outputFile: 'test-results/results.json'}]],
+  //reporter: [['junit',{outputFile: 'test-results/results.junit.xml'}]],
+  //reporter: 'blob', //for multiple machines
+  //reporter: process.env.CI ? 'github' : 'html',
+  //reporter: [['html', { open: 'never' }]],
+  //reporter: "allure-playwright",
+  //reporter: [["allure-playwright", { outputFolder: 'Allure-report' }]],
+  //reporter: [['html', { open: 'always', outputFolder: './my-report' }]],
+  //reporter: [['json'],['html', { open: 'always', outputFolder: './my-report' }], ['dot'],['allure-playwright']], //multiple reporters
   //timeout : 5000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -44,7 +55,7 @@ export default defineConfig({
     video: 'retain-on-failure',
     trace: 'on',
     //testIdAttribute: 'data-test',
-    headless: false,
+    headless: true,
     //storageState: './playwright/.auth/auth2.json',
   },
 
@@ -57,10 +68,11 @@ export default defineConfig({
     // },
     {
       name: 'chromium',
-     // dependencies: ['setup'],
-      use: { ...devices['Desktop Chrome'],
-    //  storageState: './playwright/.auth/auth3.json'
-       },
+      // dependencies: ['setup'],
+      use: {
+        ...devices['Desktop Chrome'],
+        //  storageState: './playwright/.auth/auth3.json'
+      },
 
       //  timeout : 60000,
       //trace: 'on',
