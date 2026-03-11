@@ -8,7 +8,7 @@ test('CLI practice 1', async ({ page }) => {
 
 });
 
-test('CLI  practice 2', async ({ page }) => {
+test('CLI  practice 2 @smoke', async ({ page }) => {
     console.log("Start practice test 2")
     await page.goto('https://playwright.dev/');
     await expect(page).toHaveTitle(/Playwright/);
